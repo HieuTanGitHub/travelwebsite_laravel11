@@ -20,20 +20,22 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Gallery</th>
+                        <th scope="col">Hình ảnh tour</th>
+                        <th scope="col">Lịch trình</th>
                         <th scope="col">Tiêu đề</th>
-                        <th scope="col">Danh mục</th>
+                        <th scope="col">Điểm đến</th>
+                        <th scope="col">Ngày đi</th>
+                        <th scope="col">Ngày về</th>
                         <th scope="col">Giá tour</th>
                         <th scope="col">Số lượng</th>
                         <th scope="col">Phương tiện</th>
                         <th scope="col">Mã tour</th>
                         <th scope="col">Image</th>
                         {{-- <th scope="col">Mô tả</th> --}}
-                        <th scope="col">Slug tour</th>
-                        <th scope="col">Ngày đi</th>
-                        <th scope="col">Ngày về</th>
-                        <th scope="col">Nơi đi</th>
-                        <th scope="col">Nơi đến</th>
+                        {{-- <th scope="col">Slug tour</th> --}}
+
+                        <th scope="col">Xuất phát</th>
+                        {{-- <th scope="col">Nơi đến</th> --}}
                         <th scope="col">Ngày tạo</th>
                         <th scope="col">Status</th>
                         <th scope="col">Manage</th>
@@ -44,16 +46,9 @@
                         <tr>
                             <th scope="row">{{ $key }}</th>
                             <th scope="row"><a href="{{ route('gallery.edit', [$tour->id]) }}">Thêm ảnh</a></th>
+                            <th scope="row"><a href="{{ route('schedule.edit', [$tour->id]) }}">Xem</a></th>
                             <td>{{ $tour->title }}</td>
-                            <td>{{ $tour->category->title }}</td>
-                            <td>{{ number_format($tour->price, 0, ',', '.') }}vnd</td>
-                            <td>{{ $tour->quantity }}</td>
-                            <td>{{ $tour->vehicle }}</td>
-                            <td>{{ $tour->tour_code }}</td>
-                            <td><img height="120" width="120" src="{{ asset('uploads/tours/' . $tour->image) }}"></td>
-                            {{-- <td>{{ $tour->description }}</td> --}}
-                            <td>{{ $tour->slug }}</td>
-
+                            <td><span class="text text-primary"><strong>{{ $tour->category->title }}</strong></span></td>
                             <td>
                                 @php
                                     // Convert the string into an array by splitting on commas
@@ -71,8 +66,18 @@
 
 
                             <td><span class="badge rounded-pill bg-success">{{ $tour->return_date }}</span></td>
+                            <td><span class="text text-danger">{{ number_format($tour->price, 0, ',', '.') }}vnd</span>
+                            </td>
+                            <td>{{ $tour->quantity }}</td>
+                            <td>{{ $tour->vehicle }}</td>
+                            <td>{{ $tour->tour_code }}</td>
+                            <td><img height="120" width="120" src="{{ asset('uploads/tours/' . $tour->image) }}"></td>
+                            {{-- <td>{{ $tour->description }}</td> --}}
+                            {{-- <td>{{ $tour->slug }}</td> --}}
+
+
                             <td>{{ $tour->tour_from }}</td>
-                            <td>{{ $tour->tour_to }}</td>
+                            {{-- <td>{{ $tour->tour_to }}</td> --}}
 
                             <td>{{ $tour->created_at }}</td>
 

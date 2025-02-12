@@ -16,6 +16,7 @@
             <div class="col-md-8 col-xs-12">
                 <div class="w100 fl">
                     <h1 class="hone-detail-tour"><i class="fa fa-globe"></i> {{ $tour->title }}</h1>
+                    {{ $tour->description }}
                     <div class="b-detail-primary w100 fl">
                         <div class="w100 fl desc-dtt">
                             <p></p>
@@ -105,20 +106,30 @@
                     </div>
                     <div class="w100 fl"></div>
                     <div class="b-detail-ct-tour w100 fl top-20">
+
                         <ul class="nav nav-tabs tab-dt-tour">
-                            <li class="active"><a data-toggle="tab" href="#home">Chi tiết tour</a></li>
-                            <li><a data-toggle="tab" href="#menu1">Lịch trình Tour</a></li>
-                            <li><a data-toggle="tab" href="#gallery">Ảnh du lịch</a></li>
+                            <li><a data-toggle="tab" href="#mota">Mô tả tour</a></li>
+                            <li class="active"><a data-toggle="tab" href="#lichtrinh">Lịch trình tour</a></li>
+                            <li><a data-toggle="tab" href="#baogom">Bao gồm</a></li>
+                            <li><a data-toggle="tab" href="#khongbaogom">Không bao gồm</a></li>
+                            <li><a data-toggle="tab" href="#gallery">Hình ảnh</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div id="home" class="tab-pane fade in active">
+                            <div id="mota" class="tab-pane fade">
                                 {!! $tour->description !!}
-
-
+                            </div>
+                            <div id="lichtrinh" class="tab-pane fade in active">
+                                <h4>Lịch trình tour</h4>
+                                <p>{!! $schedules->lichtrinh !!}</p>
 
                             </div>
-                            <div id="menu1" class="tab-pane fade">
-                                <h4>Lịch trình tour</h4>
+                            <div id="baogom" class="tab-pane fade">
+                                <h4>Bao gồm</h4>
+                                <p>{!! $schedules->baogom !!}</p>
+                            </div>
+                            <div id="khongbaogom" class="tab-pane fade">
+                                <h4>Không bao gồm</h4>
+                                <p>{!! $schedules->khongbaogom !!}</p>
                             </div>
                             <div id="gallery" class="tab-pane fade">
                                 @foreach ($galleries as $key => $gal)
@@ -127,6 +138,7 @@
                                 @endforeach
                             </div>
                         </div>
+
                     </div>
                 </div>
 

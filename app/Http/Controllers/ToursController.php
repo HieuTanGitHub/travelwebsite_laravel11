@@ -35,7 +35,7 @@ class ToursController extends Controller
         $data = $request->validate(
             [
                 'title' => 'required|unique:tours|max:255',
-                'description' => 'required|max:220',
+                'description' => 'required',
                 'quantity' => 'required',
                 'category_id' => 'required',
                 'price' => 'required',
@@ -122,7 +122,7 @@ class ToursController extends Controller
         $data = $request->validate(
             [
                 'title' => 'required|unique:tours|max:255',
-                'description' => 'required|max:220',
+                'description' => 'required',
                 'quantity' => 'required',
                 'price' => 'required',
                 'category_id' => 'required',

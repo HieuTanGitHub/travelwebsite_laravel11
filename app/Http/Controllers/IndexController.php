@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Tour;
 use App\Models\Gallery;
+use App\Models\Schedule;
 
 class IndexController extends Controller
 {
@@ -37,6 +38,8 @@ class IndexController extends Controller
             ->whereNotIn('id', [$tour->id])
             ->orderBy('id', 'DESC')
             ->get();
-        return view('pages.detail_tour', compact('tour', 'galleries', 'related_tour'));
+        $schedules = Schedule::where('tour_id', $tour->id)->first();
+
+        return view('pages.detail_tour', compact('tour', 'galleries', 'related_tour', 'schedules'));
     }
 }

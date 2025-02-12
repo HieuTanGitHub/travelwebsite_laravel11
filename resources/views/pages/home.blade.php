@@ -64,7 +64,7 @@
                                                 @if (!empty($departureDates))
                                                     @foreach ($departureDates as $date)
                                                         <span
-                                                            class="badge rounded-pill bg-primary inline">{{ $date }}</span>
+                                                            class="badge rounded-pill bg-success inline">{{ $date }}</span>
                                                     @endforeach
                                                 @else
                                                     <span class="text-muted">No departure dates available</span>
